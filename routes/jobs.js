@@ -6,13 +6,18 @@ const Job     = require('../models/Job');
 router.get('/test',(req,res)=>{
     res.send('deu certo')
 })
+
+router.get('/add',(req,res) => {
+    res.render('add')
+})
+
 // Add jov via POST
 
 router.post('/add',(req,res) => {
-    let{tittle , salary , company , description, email , new_job} = req.body;
+    let{title , salary , company , description, email , new_job} = req.body;
 
     Job.create({
-        tittle,
+        title,
         description,
         salary,
         company,
@@ -22,3 +27,5 @@ router.post('/add',(req,res) => {
     .then(()=> res.redirect('/'))
     .catch(err => console.log(err));
 })
+
+module.exports = router
