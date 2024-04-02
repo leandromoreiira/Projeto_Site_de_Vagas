@@ -2,11 +2,11 @@ const express = require('express');
 const router  = express.Router();
 const Job     = require('../models/Job');
 
-
+//rota que faz o teste
 router.get('/test',(req,res)=>{
     res.send('deu certo')
 })
-
+// forma de envio de rota
 router.get('/add',(req,res) => {
     res.render('add')
 })
@@ -26,6 +26,6 @@ router.post('/add',(req,res) => {
     })
     .then(()=> res.redirect('/'))
     .catch(err => console.log(err));
-})
+});
 
 module.exports = router
