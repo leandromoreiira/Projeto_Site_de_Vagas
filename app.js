@@ -58,8 +58,7 @@ app.get('/',(req,res)=>{
 }else{
     Job.findAll({
         where: {title: {[Op.like]: querry}},
-        order:[
-            ['createdAt', 'DESC']
+        order:[['createdAt', 'DESC']
         ]})
         .then(jobs => {
             console.log(search);
@@ -75,4 +74,4 @@ app.get('/',(req,res)=>{
 });
 // jobs routs
 
-app.use('/jobs',require('./routes/jobs'))
+app.use('/jobs',require('./routes/jobs'));
